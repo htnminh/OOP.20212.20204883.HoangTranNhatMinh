@@ -2,3 +2,6 @@
 *.log
 *.gz
 *.toc
+
+# generated .class files
+*.class
