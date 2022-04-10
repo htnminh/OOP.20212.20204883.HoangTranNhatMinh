@@ -1,7 +1,9 @@
+# Hands-on exercises for OOP course in HUST
+## Student info
 Name: Hoàng Trần Nhật Minh \
 Student ID: 20204883
 
-Notes:
+## Notes:
 - Lab01: Done
 
 <!---
