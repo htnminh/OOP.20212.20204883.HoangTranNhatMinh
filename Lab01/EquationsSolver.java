@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 public class EquationsSolver {
     public static String linearSolver(double a, double b) {
@@ -13,6 +14,7 @@ public class EquationsSolver {
             return "Solution: x = " + (-b/a);
         }
     }
+
     public static String linearSystemSolver(
             double a11, double a12, double b1, 
             double a21, double a22, double b2) {
@@ -34,19 +36,35 @@ public class EquationsSolver {
             }
         }
     }
+
+    public static String quadraticSolver(double a, double b, double c) {
+        // solve ax^2 + bx + c = 0
+        if (a == 0) {
+            return EquationsSolver.linearSolver(b, c);
+        } else {
+            double delta = b*b - 4*a*c;
+            if (delta < 0) {
+                return "No solution";
+            } else if (delta == 0) {
+                return "Double solution: x = " + (-b / (2*a));
+            } else {
+                double x_1 = (-b + Math.sqrt(delta)) / (2*a);
+                double x_2 = (-b - Math.sqrt(delta)) / (2*a);
+                return "Two solutions: x = " + x_1 + "; x = " + x_2;
+            }
+        }
+    }
     public static void main(String[] args) {
         System.out.println("User exceptions are not handled");
         Scanner keyboard = new Scanner(System.in);
         
-        /*
         System.out.println("Linear equation");
         System.out.print("a = ");
         double a = keyboard.nextDouble();
         System.out.print("b = ");
         double b = keyboard.nextDouble();
         System.out.println(EquationsSolver.linearSolver(a, b));
-        */
-
+        
         System.out.println("System of two linear equations");
         System.out.print("a11 = ");
         double a11 = keyboard.nextDouble();
@@ -62,6 +80,15 @@ public class EquationsSolver {
         double b2 = keyboard.nextDouble();
         System.out.println(
             EquationsSolver.linearSystemSolver(a11, a12, b1, a21, a22, b2));
+        
+        System.out.println("Quadratic equation");
+        System.out.print("a = ");
+        a = keyboard.nextDouble();
+        System.out.print("b = ");
+        b = keyboard.nextDouble();
+        System.out.print("c = ");
+        double c = keyboard.nextDouble();
+        System.out.println(EquationsSolver.quadraticSolver(a, b, c));
 
         keyboard.close();
     }
