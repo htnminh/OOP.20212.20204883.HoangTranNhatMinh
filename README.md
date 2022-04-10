@@ -1,3 +1,6 @@
+
+
+<!---
 # Name
 Description
 
@@ -23,3 +26,4 @@ Quick introduction about the chapter
 - [Code of Conduct]()
 - [Contributing]()
 - [Issue templates]()
+-->
