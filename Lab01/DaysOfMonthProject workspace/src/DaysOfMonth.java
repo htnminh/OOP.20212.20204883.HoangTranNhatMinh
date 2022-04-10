@@ -99,6 +99,5 @@ public class DaysOfMonth {
 				" has "
 				+ DaysOfMonth.daysOfMonthInYear(month, leap)
 				+ " days.");
-		
 	}
 }
