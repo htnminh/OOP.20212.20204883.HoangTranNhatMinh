@@ -1,3 +1,6 @@
 6.1.
 - What happens if users choose “Cancel”?
 	A message dialog pops up and says that "You've chosen: No".
+- How to customize the options to users, e.g., only two options: “Yes” and “No”, OR “I do” and “I
+don’t”
+	Use JOptionPane.showOptionDialog, as demonstrated in the ChoosingOption_Test.java file.
