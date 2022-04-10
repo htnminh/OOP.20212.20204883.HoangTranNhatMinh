@@ -1,4 +1,8 @@
+Name: Hoàng Trần Nhật Minh \
+Student ID: 20204883
 
+Notes:
+- Lab01: Done
 
 <!---
 # Name
