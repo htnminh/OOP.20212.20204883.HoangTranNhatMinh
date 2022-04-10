@@ -1,5 +1,5 @@
-public class FirstDegreeEqSolver {
+public class EquationsSolver {
     public static void main(String[] args) {
-        // TODO
+        
     }
 }
