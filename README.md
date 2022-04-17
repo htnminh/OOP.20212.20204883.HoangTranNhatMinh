@@ -3,8 +3,9 @@
 Name: Hoàng Trần Nhật Minh \
 Student ID: 20204883
 
-## Notes:
+## Notes
 - Lab01: Done
+- Lab02: Done
 
 # Docs
 - [LICENSE](https://github.com/htnminh/OOP.20212.20204883.HoangTranNhatMinh/blob/e28d30c74dcecc91b12979f0d0f9e7d4c4b4fff8/LICENSE)
