@@ -7,7 +7,6 @@ public class Cart {
 	private int qtyOrdered = 0;
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-		// TODO: same name?
 		if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 			for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
 				if (itemsOrdered[i] == null) {
