@@ -1,0 +1,5 @@
+https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html
+https://stackoverflow.com/questions/2747721/getters-and-setters-are-bad-oo-design
+https://www.geeksforgeeks.org/advantages-of-getter-and-setter-over-public-fields-in-java-with-examples/
+https://dzone.com/articles/java-getter-and-setter-basics-common-mistakes-and
+https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html

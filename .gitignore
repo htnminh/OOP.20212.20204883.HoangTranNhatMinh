@@ -5,3 +5,5 @@
 
 *.class
 *.asta.lock
+
+*.bkp
