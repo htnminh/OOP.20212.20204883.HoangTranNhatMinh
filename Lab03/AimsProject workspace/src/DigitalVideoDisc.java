@@ -26,13 +26,13 @@ public class DigitalVideoDisc {
 		super();
 		this.title = title;
 	}
-	public DigitalVideoDisc(String category, String title, float cost) {
+	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
 	}
-	public DigitalVideoDisc(String director, String category, String title, float cost) {
+	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
 		this.title = title;
 		this.category = category;
@@ -48,5 +48,8 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 	}
 	
-	
+	public String toString() {
+		return String.format("%s, %s, %s, %s, %s",
+				title, category, director, length, cost);
+	}
 }
