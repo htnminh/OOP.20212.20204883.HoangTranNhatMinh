@@ -1,12 +1,15 @@
 import java.time.LocalDate;
 
 public class DigitalVideoDisc {
+	private static int nbDigitalVideoDiscs = 0;
+	
 	private String title;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
 	private LocalDate dateAdded;
+	private int id;
 	
 	// getters
 	public String getTitle() {
@@ -30,6 +33,9 @@ public class DigitalVideoDisc {
 		super();
 		dateAdded = LocalDate.now();
 		this.title = title;
+		
+		nbDigitalVideoDiscs ++;
+		id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
@@ -37,6 +43,9 @@ public class DigitalVideoDisc {
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
+		
+		nbDigitalVideoDiscs ++;
+		id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
@@ -45,6 +54,9 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
+		
+		nbDigitalVideoDiscs ++;
+		id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
@@ -54,6 +66,9 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.length = length;
 		this.cost = cost;
+		
+		nbDigitalVideoDiscs ++;
+		id = nbDigitalVideoDiscs;
 	}
 	
 	// toString
