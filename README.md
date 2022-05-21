@@ -8,6 +8,7 @@ Student ID: 20204883
 - Lab02: Done
 - Lab03: Done
 - Lab04:
+  - Note: The computers in room D5-305 are too slow to run Eclipse so I guess I cannot turn in for this deadline.
 
 # Docs
 - [LICENSE](https://github.com/htnminh/OOP.20212.20204883.HoangTranNhatMinh/blob/e28d30c74dcecc91b12979f0d0f9e7d4c4b4fff8/LICENSE)
