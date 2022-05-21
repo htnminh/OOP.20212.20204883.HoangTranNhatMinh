@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 
 public class DigitalVideoDisc {
 	private String title;
@@ -5,6 +6,7 @@ public class DigitalVideoDisc {
 	private String director;
 	private int length;
 	private float cost;
+	private LocalDate dateAdded;
 	
 	// getters
 	public String getTitle() {
@@ -26,16 +28,19 @@ public class DigitalVideoDisc {
 	// constructors
 	public DigitalVideoDisc(String title) {
 		super();
+		dateAdded = LocalDate.now();
 		this.title = title;
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
+		dateAdded = LocalDate.now();
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
+		dateAdded = LocalDate.now();
 		this.title = title;
 		this.category = category;
 		this.director = director;
@@ -43,6 +48,7 @@ public class DigitalVideoDisc {
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
+		dateAdded = LocalDate.now();
 		this.title = title;
 		this.category = category;
 		this.director = director;
