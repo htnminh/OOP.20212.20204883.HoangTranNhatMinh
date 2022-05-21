@@ -6,6 +6,7 @@ public class DigitalVideoDisc {
 	private int length;
 	private float cost;
 	
+	// getters
 	public String getTitle() {
 		return title;
 	}
@@ -22,6 +23,7 @@ public class DigitalVideoDisc {
 		return cost;
 	}
 	
+	// constructors
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
@@ -48,8 +50,48 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 	}
 	
+	// toString
 	public String toString() {
 		return String.format("%s, %s, %s, %s, %s",
 				title, category, director, length, cost);
+	}
+	
+	// setters
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	private void setCategory(String category) {
+		this.category = category;
+	}
+	private void setDirector(String director) {
+		this.director = director;
+	}
+	private void setLength(int length) {
+		this.length = length;
+	}
+	private void setCost(float cost) {
+		this.cost = cost;
+	}
+	
+	public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		String title1 = dvd1.getTitle();
+		dvd1.setTitle(dvd2.getTitle());
+		dvd2.setTitle(title1);
+		
+		String category1 = dvd1.getCategory();
+		dvd1.setCategory(dvd2.getCategory());
+		dvd2.setCategory(category1);
+		
+		String director1 = dvd1.getDirector();
+		dvd1.setDirector(dvd2.getDirector());
+		dvd2.setDirector(director1);
+		
+		int length1 = dvd1.getLength();
+		dvd1.setLength(dvd2.getLength());
+		dvd2.setLength(length1);
+		
+		float cost1 = dvd1.getCost();
+		dvd1.setCost(dvd2.getCost());
+		dvd2.setCost(cost1);
 	}
 }
