@@ -135,10 +135,10 @@ public class DigitalVideoDisc {
 		dvd2.setCost(cost1);
 	}
 	
-	public boolean isMatch(String title) {
-		String words[] = title.split(" ");
+	public boolean isMatch(String name) {
+		String words[] = name.split(" ");
 		for (String word: words) {
-			if (title.contains(word))
+			if (title.toLowerCase().contains(word.toLowerCase()))
 				return true;
 		}
 		return false;

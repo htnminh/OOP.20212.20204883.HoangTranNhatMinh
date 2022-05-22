@@ -6,20 +6,20 @@ import hust.soict.dsai.aims.utils.DVDUtils;
 
 public class Cart {
 	
-	public static final int MAX_NUMBERS_ORDERED = 20;
-	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+	public static final int MAX_NUMBER_ORDERED = 20;
+	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
 	
 	private int qtyOrdered = 0;
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-		if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-			for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+		if (qtyOrdered < MAX_NUMBER_ORDERED) {
+			for (int i = 0; i < MAX_NUMBER_ORDERED; i++) {
 				if (itemsOrdered[i] == null) {
 					itemsOrdered[i] = disc;
 					qtyOrdered++;
 					System.out.println(
 							"The following disc has been added: " + disc.toString());
-					if (qtyOrdered == MAX_NUMBERS_ORDERED)
+					if (qtyOrdered == MAX_NUMBER_ORDERED)
 						System.out.println("The cart is almost full");
 					break;
 				}
@@ -36,7 +36,7 @@ public class Cart {
 	}
 	
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+		for (int i = 0; i < MAX_NUMBER_ORDERED; i++) {
 			if (itemsOrdered[i] != null)
 				if (itemsOrdered[i].getTitle().equals(disc.getTitle())) {
 					itemsOrdered[i] = null;
@@ -87,7 +87,7 @@ public class Cart {
 	
 	private void arrange() {
 		// arrange the cart by pushing all nulls to right most
-		DigitalVideoDisc[] arrangedItems = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+		DigitalVideoDisc[] arrangedItems = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
 		int i = 0;
 		for (DigitalVideoDisc dvd: itemsOrdered)
 			if (dvd != null) {
@@ -99,7 +99,7 @@ public class Cart {
 	
 	private void pasteArrayToItemsOrdered(DigitalVideoDisc[] array) {
 		// paste the array to itemsOrdered
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+		for (int i = 0; i < MAX_NUMBER_ORDERED; i++) {
 			if (i < array.length) {
 				itemsOrdered[i] = array[i];
 			} else {
@@ -135,12 +135,28 @@ public class Cart {
 	}
 	
 	public void search(int id) {
+		boolean found = false;
 		for (DigitalVideoDisc dvd: itemsOrdered)
 			if (dvd != null)
 				if (dvd.getId() == id) {
+					found = true;
 					System.out.println("Found: " + dvd);
-					return;
 				}
-		System.out.println("DVD not found");
+		if (!found)
+			System.out.println("DVD not found");
+	}
+	
+	public void search(String name) {
+		// Aladin contains "a", The Lion King contains "in":
+		// this type of results are included
+		boolean found = false;
+		for (DigitalVideoDisc dvd: itemsOrdered)
+			if (dvd != null)
+				if (dvd.isMatch(name)) {
+					found = true;
+					System.out.println("Found: " + dvd);
+				}
+		if (!found)
+			System.out.println("DVD not found");
 	}
 }

@@ -1,4 +1,4 @@
-package hust.soict.dsai.aims.test.cart;
+package hust.soict.dsai.test.cart;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
@@ -37,6 +37,17 @@ public class CartTest {
 		cart.addDigitalVideoDisc(dvd6);
 		
 		cart.print();
+		
+		cart.addDigitalVideoDisc(dvd1);
+		cart.search(1);
+		
+		System.out.println();
+		cart.search("There is a star in the galaxy");
+		// Aladin contains "a", The Lion King contains "in"
+		
+		System.out.println();
+		cart.search("star is an astronomical object");
+		
 	}
 
 }
