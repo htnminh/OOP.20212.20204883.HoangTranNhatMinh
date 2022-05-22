@@ -15,7 +15,7 @@ public class Store {
 					itemsInStore[i] = dvd;
 					qtyStored++;
 					System.out.println(
-							"Added to store the disc: " + dvd.toString());
+							"Added to store the following disc: " + dvd.toString());
 					if (qtyStored == MAX_NUMBER_STORED)
 						System.out.println("The store is almost full");
 					break;
@@ -33,11 +33,29 @@ public class Store {
 					itemsInStore[i] = null;
 					qtyStored--;
 					System.out.println(
-							"The following disc has been removed: "
+							"Removed from store the following disc: "
 													+ dvd.toString());
 					return;
 				}
 		}
 		System.out.println("The disc is not found");
+	}
+	
+//	public void seeDetailsDVD(String title) {
+//		int i = searchExact(title);
+//		if (i >= 0)
+//			System.out.println(itemsInStore[i].toString());
+//		else
+//			System.out.println("The disc is not found");
+//	}
+	
+	public int searchExact(String title) {
+		for (int i = 0; i < MAX_NUMBER_STORED; i++) {
+			if (itemsInStore[i] != null)
+				if (itemsInStore[i].getTitle().equals(title)) {
+					return i;
+				}
+		}
+		return -1;
 	}
 }

@@ -36,17 +36,12 @@ public class Cart {
 	}
 	
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		for (int i = 0; i < MAX_NUMBER_ORDERED; i++) {
-			if (itemsOrdered[i] != null)
-				if (itemsOrdered[i].getTitle().equals(disc.getTitle())) {
-					itemsOrdered[i] = null;
-					qtyOrdered--;
-					System.out.println(
-							"The following disc has been removed: " + disc.toString());
-					return;
-				}
-		}
-		System.out.println("The disc is not found");
+		int i = searchExact(disc.getTitle());
+		if (i >= 0)
+			System.out.println(
+					"The following disc has been removed: " + disc.toString());
+		else
+			System.out.println("The disc is not found");
 	}
 	
 	public float totalCost() {
@@ -158,5 +153,15 @@ public class Cart {
 				}
 		if (!found)
 			System.out.println("DVD not found");
+	}
+	
+	public int searchExact(String name) {
+		for (int i = 0; i < MAX_NUMBER_ORDERED; i++) {
+			if (itemsOrdered[i] != null)
+				if (itemsOrdered[i].getTitle().equals(name)) {
+					return i;
+				}
+		}
+		return -1;
 	}
 }

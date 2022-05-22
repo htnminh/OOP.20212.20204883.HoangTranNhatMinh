@@ -48,6 +48,8 @@ public class CartTest {
 		System.out.println();
 		cart.search("star is an astronomical object");
 		
+		cart.removeDigitalVideoDisc(dvd4);
+		
 	}
 
 }
