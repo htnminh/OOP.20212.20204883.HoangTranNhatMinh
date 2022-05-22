@@ -2,7 +2,7 @@ package hust.soict.dsai.lab01.basics;
 
 import javax.swing.JOptionPane;
 
-public class ChoosingOption_Test {
+public class TestChoosingOption {
     public static void main(String[] args) {
     	String[] options = {"I do", "I don't", "Never mind"};
         int option = JOptionPane.showOptionDialog(
