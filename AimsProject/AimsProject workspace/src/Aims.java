@@ -35,9 +35,6 @@ public class Aims {
 		System.out.println();
 		
 		cart.addDigitalVideoDisc(dvd3, dvd2, dvd1);
-//		System.out.println(cart.getQtyOrdered() + " DVDs in Cart: " + cart.toString());
-//		System.out.println("Total Cost is: " + cart.totalCost());
-//		System.out.println();
 		cart.print();
 	}
 

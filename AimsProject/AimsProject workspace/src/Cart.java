@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Cart {
 	
@@ -64,14 +65,78 @@ public class Cart {
 		return qtyOrdered;
 	}
 	
-	public void print() {
+	public void print(String note) {
 		System.out.println("***********************CART***********************");
-		System.out.println("Ordered Items:");
+		System.out.println("Ordered Items: " + note);
 		for (DigitalVideoDisc dvd: itemsOrdered) {
 			if (dvd != null) 
 				System.out.println(dvd);
 		}
-		System.out.println("Total cost: " + totalCost());
+		System.out.println(String.format("Total cost: %.2f", totalCost()));
 		System.out.println("**************************************************");
+	}
+	
+	public void print() {
+		sortByAttr();
+		print("");
+	}
+	
+	private void arrange() {
+		// arrange the cart by pushing all nulls to right most
+		DigitalVideoDisc[] arrangedItems = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+		int i = 0;
+		for (DigitalVideoDisc dvd: itemsOrdered)
+			if (dvd != null) {
+				arrangedItems[i] = dvd;
+				i++;
+			}
+		itemsOrdered = arrangedItems;
+	} 
+	
+	private void pasteArrayToItemsOrdered(DigitalVideoDisc[] array) {
+		// paste the array to itemsOrdered
+		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+			if (i < array.length) {
+				itemsOrdered[i] = array[i];
+			} else {
+				itemsOrdered[i] = null;
+			}
+		}
+	}
+	
+	public void sortByCostAndPrint() {
+		arrange();
+		DigitalVideoDisc[] subItemsOrdered
+			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
+		subItemsOrdered = DVDUtils.sortByCost(subItemsOrdered);
+		pasteArrayToItemsOrdered(subItemsOrdered);
+		print("(by cost)");
+	}
+	
+	public void sortByTitleAndPrint() {
+		arrange();
+		DigitalVideoDisc[] subItemsOrdered
+			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
+		subItemsOrdered = DVDUtils.sortByTitle(subItemsOrdered);
+		pasteArrayToItemsOrdered(subItemsOrdered);
+		print("(by title)");
+	}
+	
+	public void sortByAttr() {
+		arrange();
+		DigitalVideoDisc[] subItemsOrdered
+			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
+		subItemsOrdered = DVDUtils.sortByAttr(subItemsOrdered);
+		pasteArrayToItemsOrdered(subItemsOrdered);
+	}
+	
+	public void search(int id) {
+		for (DigitalVideoDisc dvd: itemsOrdered)
+			if (dvd != null)
+				if (dvd.getId() == id) {
+					System.out.println("Found: " + dvd);
+					return;
+				}
+		System.out.println("DVD not found");
 	}
 }

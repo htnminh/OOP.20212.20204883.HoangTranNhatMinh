@@ -41,13 +41,22 @@ public class DVDUtils {
 		Arrays.sort(dvdTArray);
 		return dvdTArray;
 	}
-	
+	public static DigitalVideoDisc[] sortByAttr(DigitalVideoDisc[] dvdArray) {
+		int length = dvdArray.length;
+		DigitalVideoDiscAttrComparable[] dvdAArray
+			= new DigitalVideoDiscAttrComparable[length];
+		for (int i = 0; i < length; i++) {
+			dvdAArray[i] = new DigitalVideoDiscAttrComparable(dvdArray[i]);
+		}
+		Arrays.sort(dvdAArray);
+		return dvdAArray;
+	}
 	
 }
 
 class DigitalVideoDiscCostComparable
 		extends DigitalVideoDisc
-		implements Comparable<DigitalVideoDiscCostComparable> {
+		implements java.lang.Comparable<DigitalVideoDiscCostComparable> {
 
 	public DigitalVideoDiscCostComparable(DigitalVideoDisc dvd) {
 		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
@@ -62,7 +71,7 @@ class DigitalVideoDiscCostComparable
 
 class DigitalVideoDiscTitleComparable
 		extends DigitalVideoDisc
-		implements Comparable<DigitalVideoDiscTitleComparable> {
+		implements java.lang.Comparable<DigitalVideoDiscTitleComparable> {
 
 	public DigitalVideoDiscTitleComparable(DigitalVideoDisc dvd) {
 		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
@@ -71,6 +80,33 @@ class DigitalVideoDiscTitleComparable
 	@Override
 	public int compareTo(DigitalVideoDiscTitleComparable other) {
 		return this.getTitle().compareTo(other.getTitle());
+	}
+}
+
+
+class DigitalVideoDiscAttrComparable
+		extends DigitalVideoDisc
+		implements java.lang.Comparable<DigitalVideoDiscAttrComparable> {
+	
+	public DigitalVideoDiscAttrComparable(DigitalVideoDisc dvd) {
+		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
+	}
+	
+	@Override
+	public int compareTo(DigitalVideoDiscAttrComparable other) {
+		int titleCompare = this.getTitle().compareTo(other.getTitle());
+		if (titleCompare != 0)
+			return titleCompare;
+		
+		int costCompare = Float.compare(this.getCost(), other.getCost());
+		if (costCompare != 0)
+			return costCompare * -1;
+		
+		int lengthCompare = Integer.compare(this.getLength(), other.getLength());
+		if (lengthCompare != 0)
+			return lengthCompare * -1;
+		
+		return 0;
 	}
 }
 
