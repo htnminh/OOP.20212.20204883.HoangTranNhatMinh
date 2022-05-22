@@ -9,8 +9,12 @@ Student ID: 20204883
 - Lab03: Done
 - Lab04:
   - Note: The computers in room D5-305 are too slow to run Eclipse so I guess I cannot turn in for this deadline.
-  - Note: Instead of naming the package like `hust.soict.dsai.test.cart`, I named it like `hust.soict.dsai.aims.test.cart`, and so on for sibling packages. The reason why:
-    - Before: ![image](https://user-images.githubusercontent.com/82358580/169690961-e2c4652c-23b1-4fbc-8d1c-25b5cf78603a.png) -> After: ![image](https://user-images.githubusercontent.com/82358580/169691055-a59af517-97e2-4f61-a6f7-54da4f51bca5.png)
+  - Notes:
+    - Instead of naming the package like `hust.soict.dsai.test.cart`, I named it like `hust.soict.dsai.aims.test.cart`, and so on for sibling packages. The reason why:
+      - Before: ![image](https://user-images.githubusercontent.com/82358580/169690961-e2c4652c-23b1-4fbc-8d1c-25b5cf78603a.png) -> After: ![image](https://user-images.githubusercontent.com/82358580/169691055-a59af517-97e2-4f61-a6f7-54da4f51bca5.png)
+    - I don't think putting a test class in this package is reasonable, it really breaks the structure of the project.
+      - ![image](https://user-images.githubusercontent.com/82358580/169691935-6e0b0ffa-7824-4799-a1e9-bca9ef4e3ed7.png)
+
 
 
   - Answers (I will move it later):
