@@ -83,8 +83,9 @@ public class DigitalVideoDisc {
 	}
 	
 	// toString
+	@Override
 	public String toString() {
-		return String.format("%s, %s, %s, %s, %s",
+		return String.format("(%s, %s, %s, %s, %s)",
 				title, category, director, length, cost);
 	}
 	
@@ -105,6 +106,7 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 	}
 	
+	// swap
 	public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
 		String title1 = dvd1.getTitle();
 		dvd1.setTitle(dvd2.getTitle());
