@@ -12,12 +12,10 @@ public class Cart {
 				if (itemsOrdered[i] == null) {
 					itemsOrdered[i] = disc;
 					qtyOrdered++;
-					if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-						System.out.println(
+					System.out.println(
 							"The following disc has been added: " + disc.toString());
-					} else {
+					if (qtyOrdered == MAX_NUMBERS_ORDERED)
 						System.out.println("The cart is almost full");
-					}
 					break;
 				}
 			}
