@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class DVDTest {
 
@@ -20,11 +19,18 @@ public class DVDTest {
 		DigitalVideoDisc dvdArray[] =
 				new DigitalVideoDisc[] {dvd1, dvd2, dvd3, dvd4, dvd5};
 		
-		DigitalVideoDisc[] sorted = DVDUtils.sortByCost(dvdArray);
-		System.out.println(Arrays.toString(sorted));
 		
+		System.out.println("Sort by cost:");
+		DigitalVideoDisc[] sorted = DVDUtils.sortByCost(dvdArray);
+		for (DigitalVideoDisc dvd: sorted) {
+			System.out.println(dvd);
+		}
+		
+		System.out.println("Sort by title:");
 		sorted = DVDUtils.sortByTitle(dvdArray);
-		System.out.println(Arrays.toString(sorted));
+		for (DigitalVideoDisc dvd: sorted) {
+			System.out.println(dvd);
+		}
 
 	}
 }

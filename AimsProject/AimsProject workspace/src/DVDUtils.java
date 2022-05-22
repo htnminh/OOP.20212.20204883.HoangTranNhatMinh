@@ -49,12 +49,8 @@ class DigitalVideoDiscCostComparable
 		extends DigitalVideoDisc
 		implements Comparable<DigitalVideoDiscCostComparable> {
 
-	public DigitalVideoDiscCostComparable(
-			String title, String category, String director, int length, float cost) {
-		super(title, category, director, length, cost);
-	}
 	public DigitalVideoDiscCostComparable(DigitalVideoDisc dvd) {
-		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost());
+		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
 	}
 	
 	@Override
@@ -68,12 +64,8 @@ class DigitalVideoDiscTitleComparable
 		extends DigitalVideoDisc
 		implements Comparable<DigitalVideoDiscTitleComparable> {
 
-	public DigitalVideoDiscTitleComparable(
-			String title, String category, String director, int length, float cost) {
-		super(title, category, director, length, cost);
-	}
 	public DigitalVideoDiscTitleComparable(DigitalVideoDisc dvd) {
-		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost());
+		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
 	}
 	
 	@Override

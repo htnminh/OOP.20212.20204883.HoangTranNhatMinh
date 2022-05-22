@@ -44,9 +44,7 @@ public class DigitalVideoDisc {
 		super();
 		dateAdded = LocalDate.now();
 		this.title = title;
-		
-		nbDigitalVideoDiscs ++;
-		id = nbDigitalVideoDiscs;
+		setNewId();
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
@@ -54,9 +52,7 @@ public class DigitalVideoDisc {
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
-		
-		nbDigitalVideoDiscs ++;
-		id = nbDigitalVideoDiscs;
+		setNewId();
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
@@ -65,9 +61,7 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
-		
-		nbDigitalVideoDiscs ++;
-		id = nbDigitalVideoDiscs;
+		setNewId();
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
@@ -77,16 +71,23 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.length = length;
 		this.cost = cost;
-		
-		nbDigitalVideoDiscs ++;
-		id = nbDigitalVideoDiscs;
+		setNewId();
+	}
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.director = director;
+		this.length = length;
+		this.cost = cost;
+		this.id = id;
 	}
 	
 	// toString
 	@Override
 	public String toString() {
-		return String.format("(%s, %s, %s, %s, %s)",
-				title, category, director, length, cost);
+		return String.format("%s. DVD - %s - %s - %s - %s: %s $",
+				id, title, category, director, length, cost);
 	}
 	
 	// setters
@@ -104,6 +105,10 @@ public class DigitalVideoDisc {
 	}
 	private void setCost(float cost) {
 		this.cost = cost;
+	}
+	private void setNewId() {
+		nbDigitalVideoDiscs ++;
+		id = nbDigitalVideoDiscs;
 	}
 	
 	// swap
