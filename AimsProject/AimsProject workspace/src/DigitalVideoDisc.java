@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 
+
 public class DigitalVideoDisc {
 	private static int nbDigitalVideoDiscs = 0;
 	
@@ -26,6 +27,16 @@ public class DigitalVideoDisc {
 	}
 	public float getCost() {
 		return cost;
+	}
+	public LocalDate getDateAdded() {
+		return dateAdded;
+	}
+	public int getId() {
+		return id;
+	}
+	
+	public static int getNbDigitalVideoDiscs() {
+		return nbDigitalVideoDiscs;
 	}
 	
 	// constructors
