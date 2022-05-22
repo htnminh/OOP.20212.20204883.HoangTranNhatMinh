@@ -134,4 +134,14 @@ public class DigitalVideoDisc {
 		dvd1.setCost(dvd2.getCost());
 		dvd2.setCost(cost1);
 	}
+	
+	public boolean isMatch(String title) {
+		String words[] = title.split(" ");
+		for (String word: words) {
+			if (title.contains(word))
+				return true;
+		}
+		return false;
+	}
+	
 }
