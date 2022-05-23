@@ -231,7 +231,7 @@ public class Aims {
 	}
 
 	public static void exit() {
-		System.out.print("Program exited");
+		System.out.print("Program exited.");
 		System.exit(0);
 	}
 }
