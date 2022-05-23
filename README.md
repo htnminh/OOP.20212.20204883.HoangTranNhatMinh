@@ -7,25 +7,8 @@ Student ID: 20204883
 - Lab01: Done
 - Lab02: Done
 - Lab03: Done
-- Lab04:
+- Lab04: Done
   - Note: The computers in room D5-305 are too slow to run Eclipse so I guess I cannot turn in for this deadline.
-<!--
-  - Notes:
-    - Instead of naming the package like `hust.soict.dsai.test.cart`, I named it like `hust.soict.dsai.aims.test.cart`, and so on for sibling packages. The reason why:
-      - Before: ![image](https://user-images.githubusercontent.com/82358580/169690961-e2c4652c-23b1-4fbc-8d1c-25b5cf78603a.png) -> After: ![image](https://user-images.githubusercontent.com/82358580/169691055-a59af517-97e2-4f61-a6f7-54da4f51bca5.png)
-    
-    - I don't think putting a test class in this package is reasonable, it really breaks the structure of the project.
-      - ![image](https://user-images.githubusercontent.com/82358580/169691935-6e0b0ffa-7824-4799-a1e9-bca9ef4e3ed7.png)
--->
-
-
-  - Answers (I will move it later):
-    - Is JAVA a Pass by Value or a Pass by Reference programming language?
-      - Java is pass by value. Even for objects, we are working with references of those objects, which are pass by value.
-    - After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
-      - The method swap() creates copies of those references, so swap those copies changes nothing.
-    - After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
-      - The method changeTitle() sets the new title for the referenced object. Afterwards, it tries to assign the dvd to a new dvd with the old title, but it does nothing since dvd is just a copy of reference.
     
 
 # Docs
