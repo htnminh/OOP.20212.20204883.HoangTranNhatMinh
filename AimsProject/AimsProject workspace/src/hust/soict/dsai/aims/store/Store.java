@@ -1,5 +1,8 @@
 package hust.soict.dsai.aims.store;
 
+
+import hust.soict.dsai.aims.Aims;
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
@@ -41,13 +44,10 @@ public class Store {
 		System.out.println("The disc is not found");
 	}
 	
-//	public void seeDetailsDVD(String title) {
-//		int i = searchExact(title);
-//		if (i >= 0)
-//			System.out.println(itemsInStore[i].toString());
-//		else
-//			System.out.println("The disc is not found");
-//	}
+	public void removeDVD(String title) {
+		DigitalVideoDisc dvd = new DigitalVideoDisc(title);
+		removeDVD(dvd);
+	}
 	
 	public int searchExact(String title) {
 		for (int i = 0; i < MAX_NUMBER_STORED; i++) {
@@ -58,4 +58,39 @@ public class Store {
 		}
 		return -1;
 	}
+	
+	public void seeDetailsAndAskAddDVD(String title, Cart cart) {
+		int i = searchExact(title);
+		if (i >= 0) {
+			DigitalVideoDisc dvd = itemsInStore[i];
+			System.out.println("Found: " + dvd.toString());
+			
+			System.out.println("Add disc? 0. No / 1. Yes (exception not handled)");
+			int inp = Aims.readIntInput(1);
+			if (inp == 1)
+				cart.addDigitalVideoDisc(dvd);
+		} else
+			System.out.println("The disc is not found");
+	}
+	
+	public void addDVDToCart(String title, Cart cart) {
+		int i = searchExact(title);
+		if (i >= 0) {
+			DigitalVideoDisc dvd = itemsInStore[i];
+			cart.addDigitalVideoDisc(dvd);
+			System.out.println("DVD added to cart");
+		} else
+			System.out.println("The disc is not found");
+	}
+	
+	public void print(String note) {
+		System.out.println("***********************STORE**********************");
+		System.out.println("Stored Items: " + note);
+		for (DigitalVideoDisc dvd: itemsInStore) {
+			if (dvd != null) 
+				System.out.println(dvd);
+		}
+		System.out.println("**************************************************");
+	}
+
 }

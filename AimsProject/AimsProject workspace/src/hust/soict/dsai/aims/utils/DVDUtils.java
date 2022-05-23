@@ -7,10 +7,10 @@ import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 public class DVDUtils {
 	public static int compareByCost(
 			DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-		DigitalVideoDiscCostComparable dvdC1
-			= new DigitalVideoDiscCostComparable(dvd1);
-		DigitalVideoDiscCostComparable dvdC2
-			= new DigitalVideoDiscCostComparable(dvd2);
+		DigitalVideoDiscCostDescTitleComparable dvdC1
+			= new DigitalVideoDiscCostDescTitleComparable(dvd1);
+		DigitalVideoDiscCostDescTitleComparable dvdC2
+			= new DigitalVideoDiscCostDescTitleComparable(dvd2);
 		return dvdC1.compareTo(dvdC2);
 	}
 	
@@ -26,10 +26,10 @@ public class DVDUtils {
 	
 	public static DigitalVideoDisc[] sortByCost(DigitalVideoDisc[] dvdArray) {
 		int length = dvdArray.length;
-		DigitalVideoDiscCostComparable[] dvdCArray
-			= new DigitalVideoDiscCostComparable[length];
+		DigitalVideoDiscCostDescTitleComparable[] dvdCArray
+			= new DigitalVideoDiscCostDescTitleComparable[length];
 		for (int i = 0; i < length; i++) {
-			dvdCArray[i] = new DigitalVideoDiscCostComparable(dvdArray[i]);
+			dvdCArray[i] = new DigitalVideoDiscCostDescTitleComparable(dvdArray[i]);
 		}
 		Arrays.sort(dvdCArray);
 		return dvdCArray;
@@ -57,17 +57,20 @@ public class DVDUtils {
 	
 }
 
-class DigitalVideoDiscCostComparable
+class DigitalVideoDiscCostDescTitleComparable
 		extends DigitalVideoDisc
-		implements java.lang.Comparable<DigitalVideoDiscCostComparable> {
+		implements java.lang.Comparable<DigitalVideoDiscCostDescTitleComparable> {
 
-	public DigitalVideoDiscCostComparable(DigitalVideoDisc dvd) {
+	public DigitalVideoDiscCostDescTitleComparable(DigitalVideoDisc dvd) {
 		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
 	}
 	
 	@Override
-	public int compareTo(DigitalVideoDiscCostComparable other) {
-		return Float.compare(this.getCost(), other.getCost());
+	public int compareTo(DigitalVideoDiscCostDescTitleComparable other) {
+		int costCompare = Float.compare(this.getCost(), other.getCost()) * -1;
+		if (costCompare != 0)
+			return costCompare;
+		return this.getTitle().compareTo(other.getTitle());
 	}
 }
 
@@ -106,10 +109,9 @@ class DigitalVideoDiscAttrComparable
 			return costCompare * -1;
 		
 		int lengthCompare = Integer.compare(this.getLength(), other.getLength());
-		if (lengthCompare != 0)
-			return lengthCompare * -1;
+		return lengthCompare * -1;
 		
-		return 0;
+
 	}
 }
 

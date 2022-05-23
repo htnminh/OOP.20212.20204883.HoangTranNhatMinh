@@ -20,7 +20,7 @@ public class CartTest {
 		cart.addDigitalVideoDisc(dvd3);
 
 		cart.print();
-		cart.sortByCostAndPrint();
+		cart.sortByCostDescTitleAndPrint();
 		cart.sortByTitleAndPrint();
 		
 		cart.search(2);
@@ -49,6 +49,9 @@ public class CartTest {
 		cart.search("star is an astronomical object");
 		
 		cart.removeDigitalVideoDisc(dvd4);
+		cart.addDigitalVideoDisc(dvd4);
+		
+		cart.sortByCostDescTitleAndPrint();
 		
 	}
 

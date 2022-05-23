@@ -9,14 +9,18 @@ import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
 	private static Store store = new Store();
-	private static final Scanner scanner = new Scanner(System.in);
+	private static Cart cart = new Cart();
 
 	public static void main(String[] args) {
 		showAction();
-		System.out.print("Program exited");
-		scanner.close();
+		exit();
 	}
 	
+	// FUNCTION TEMPORARY DISABLED:
+	// current bug: after adding a disc to store
+	// it shows
+	// Input = Input = 
+	/*
 	public static int readInput(int max) {
 		String inpStr;
 		int inpInt;
@@ -34,12 +38,37 @@ public class Aims {
 		
 		return inpInt;
 	}
+	*/
+	public static int readIntInput(int max) {
+		Scanner scanner = new Scanner(System.in);
+
+		int inp;
+		do {
+			System.out.print("Input (exception not handled) = ");
+			inp = scanner.nextInt();
+		} while (!((0 <= inp && inp <= max)));
+		
+		// scanner.close();
+		return inp;
+	}
+	
+	public static String readStringInput(String message) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print(message);
+		String inp = scanner.nextLine();
+		
+		// scanner.close();	
+		return inp;
+	}
 	
 	// MAIN MENU
 	public static void showAction() {
 		showMenu();
-		int inp = readInput(3);
-		if (inp == 0) {}
+		int inp = readIntInput(3);
+		if (inp == 0) {
+			exit();
+		}
 		if (inp == 1) storeAction();
 		if (inp == 2) updateAction();
 		if (inp == 3) cartAction();
@@ -48,42 +77,123 @@ public class Aims {
 	// STORE
 	public static void storeAction() {
 		storeMenu();
-		int inp = readInput(3);
+		int inp = readIntInput(3);
 		if (inp == 0) showAction();
-		if (inp == 1) seeDetailsDVD();
-		if (inp == 2) addToCartDVD();
-		if (inp == 3) seeCart();
+		if (inp == 1) storeDetails();
+		if (inp == 2) storeAdd();
+		if (inp == 3) cartAction();
 	}
 	
-	public static void seeDetailsDVD() {
-		System.out.print("Enter title: ");
-		String title = scanner.nextLine();
-		int res = store.searchExact(title);
-		if (res >= 0) {
-			
-		}
+	public static void storeDetails() {
+		store.print("");
+		String title = readStringInput("Enter title: ");
 		
+		store.seeDetailsAndAskAddDVD(title, cart);
+		storeAction();
 	}
 	
-	public static void addToCartDVD() {
-		
-	}
-	
-	public static void seeCart() {
-		
+	public static void storeAdd() {
+		store.print("");
+		String title = readStringInput("Enter title: ");
+		store.addDVDToCart(title, cart);
+		storeAction();
 	}
 	
 	// UPDATE
 	public static void updateAction() {
-		//updateMenu();
+		store.print("");
+		
+		System.out.println("1. Add a DVD to store");
+		System.out.println("2. Remove a DVD from store");
+		System.out.println("0. Back");
+		
+		int inp = readIntInput(2);
+		
+		if (inp == 0) showAction();
+		if (inp == 1) {
+			String title = readStringInput("Enter title: ");
+			String category = readStringInput("Enter category: ");
+			String director = readStringInput("Enter director: ");
+			
+			Scanner scanner = new Scanner(System.in); 
+			
+			System.out.print("Enter length (int) (exception not handled): ");
+			int length = scanner.nextInt();
+			System.out.print("Enter cost (float) (exception not handled): ");
+			float cost = scanner.nextFloat();
+			
+			
+			DigitalVideoDisc dvd = new DigitalVideoDisc(
+					title, category, director, length, cost);
+			store.addDVD(dvd);
+			
+			updateAction();
+		}
+		if (inp == 2) {
+			String title = readStringInput("Enter title: ");
+			store.removeDVD(title);
+			updateAction();
+		}
 		
 	}
 
 	// CART
 	public static void cartAction() {
+		cart.print();
+		cartMenu();
+		int inp = readIntInput(4);
 		
+		if (inp == 0) showAction();
+		if (inp == 1) cartFilter();
+		if (inp == 2) cartSort();
+		if (inp == 3) cartRemove();
+		if (inp == 4) cartOrder();
 	}
 	
+	public static void cartFilter() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(
+				"Filter by? 0. ID / 1. Title (exception not handled)");
+		int inp = readIntInput(1);
+		if (inp == 0) {
+			System.out.print("Enter ID (int) (exception not handled): ");
+			int id = scanner.nextInt();
+			cart.search(id);
+			cartAction();
+		} else {
+			String title = readStringInput("Enter title: ");
+			cart.search(title);
+			cartAction();
+		}
+	}
+	
+	public static void cartSort() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(
+				"Sort by? 0. Title / 1. Cost (exception not handled)");
+		int inp = readIntInput(1);
+		if (inp == 0) {
+			cart.sortByAttr();
+			cart.print("(sorted by title, cost (descending))");
+			cartAction();
+		} else {
+			cart.sortByCostDescTitleAndPrint();
+			cartAction();
+		}
+	}
+	
+	public static void cartRemove() {
+		String title = readStringInput("Enter title: ");
+		DigitalVideoDisc dvd = new DigitalVideoDisc(title);
+		cart.removeDigitalVideoDisc(dvd);
+		cartAction();
+	}
+	
+	public static void cartOrder() {
+		System.out.println("An order is created");
+		cart.empty();
+		cartAction();
+	}
 	
 	// 
 	public static void showMenu() {
@@ -119,8 +229,13 @@ public class Aims {
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3-4");
 	}
-	
+
+	public static void exit() {
+		System.out.print("Program exited");
+		System.exit(0);
+	}
 }
+
 
 /*
  * Cart cart = new Cart();

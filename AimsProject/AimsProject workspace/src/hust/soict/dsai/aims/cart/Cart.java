@@ -37,10 +37,12 @@ public class Cart {
 	
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		int i = searchExact(disc.getTitle());
-		if (i >= 0)
+		if (i >= 0) {
+			itemsOrdered[i] = null;
+			qtyOrdered--;
 			System.out.println(
 					"The following disc has been removed: " + disc.toString());
-		else
+		} else
 			System.out.println("The disc is not found");
 	}
 	
@@ -103,13 +105,13 @@ public class Cart {
 		}
 	}
 	
-	public void sortByCostAndPrint() {
+	public void sortByCostDescTitleAndPrint() {
 		arrange();
 		DigitalVideoDisc[] subItemsOrdered
 			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
 		subItemsOrdered = DVDUtils.sortByCost(subItemsOrdered);
 		pasteArrayToItemsOrdered(subItemsOrdered);
-		print("(by cost)");
+		print("(by cost (descending), then title)");
 	}
 	
 	public void sortByTitleAndPrint() {
@@ -163,5 +165,11 @@ public class Cart {
 				}
 		}
 		return -1;
+	}
+	
+	public void empty() {
+		qtyOrdered = 0;
+		for (int i = 0; i < MAX_NUMBER_ORDERED; i++)
+			itemsOrdered[i] = null;
 	}
 }
