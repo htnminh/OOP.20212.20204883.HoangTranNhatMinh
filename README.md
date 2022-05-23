@@ -10,7 +10,6 @@ Student ID: 20204883
 - Lab04: Done
   - Note: The computers in room D5-305 are too slow to run Eclipse so I guess I cannot turn in for this deadline.
   - For backward compatibility, the Lab01, Lab02 and Lab03 folders will not be removed. However, everything in those folders (except for answer files) is copied to AimsProject.
-    
 
 # Docs
 - [LICENSE](https://github.com/htnminh/OOP.20212.20204883.HoangTranNhatMinh/blob/e28d30c74dcecc91b12979f0d0f9e7d4c4b4fff8/LICENSE)
