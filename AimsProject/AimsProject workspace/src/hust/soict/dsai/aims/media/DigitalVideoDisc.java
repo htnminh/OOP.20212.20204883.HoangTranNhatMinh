@@ -7,7 +7,7 @@ public class DigitalVideoDisc extends Media {
 	
 	private String director;
 	private int length;
-	private LocalDate dateAdded;
+	// private LocalDate dateAdded;
 	public String getDirector() {
 		return director;
 	}
