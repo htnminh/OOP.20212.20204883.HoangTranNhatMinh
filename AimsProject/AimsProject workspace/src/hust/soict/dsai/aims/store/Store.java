@@ -3,7 +3,7 @@ package hust.soict.dsai.aims.store;
 
 import hust.soict.dsai.aims.Aims;
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Store {
 	private static final int MAX_NUMBER_STORED = 100;
