@@ -16,10 +16,10 @@ public class DVDUtils {
 	
 	public static int compareByTitle(
 			DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-		DigitalVideoDiscTitleComparable dvdC1
-			= new DigitalVideoDiscTitleComparable(dvd1);
-		DigitalVideoDiscTitleComparable dvdC2
-			= new DigitalVideoDiscTitleComparable(dvd2);
+		DigitalVideoDiscTitleCompare dvdC1
+			= new DigitalVideoDiscTitleCompare(dvd1);
+		DigitalVideoDiscTitleCompare dvdC2
+			= new DigitalVideoDiscTitleCompare(dvd2);
 		return dvdC1.compareTo(dvdC2); 
 	}
 
@@ -36,20 +36,20 @@ public class DVDUtils {
 	}
 	public static DigitalVideoDisc[] sortByTitle(DigitalVideoDisc[] dvdArray) {
 		int length = dvdArray.length;
-		DigitalVideoDiscTitleComparable[] dvdTArray
-			= new DigitalVideoDiscTitleComparable[length];
+		DigitalVideoDiscTitleCompare[] dvdTArray
+			= new DigitalVideoDiscTitleCompare[length];
 		for (int i = 0; i < length; i++) {
-			dvdTArray[i] = new DigitalVideoDiscTitleComparable(dvdArray[i]);
+			dvdTArray[i] = new DigitalVideoDiscTitleCompare(dvdArray[i]);
 		}
 		Arrays.sort(dvdTArray);
 		return dvdTArray;
 	}
 	public static DigitalVideoDisc[] sortByAttr(DigitalVideoDisc[] dvdArray) {
 		int length = dvdArray.length;
-		DigitalVideoDiscAttrComparable[] dvdAArray
-			= new DigitalVideoDiscAttrComparable[length];
+		DigitalVideoDiscAttrCompare[] dvdAArray
+			= new DigitalVideoDiscAttrCompare[length];
 		for (int i = 0; i < length; i++) {
-			dvdAArray[i] = new DigitalVideoDiscAttrComparable(dvdArray[i]);
+			dvdAArray[i] = new DigitalVideoDiscAttrCompare(dvdArray[i]);
 		}
 		Arrays.sort(dvdAArray);
 		return dvdAArray;
@@ -75,31 +75,31 @@ class DigitalVideoDiscCostDescTitleComparable
 }
 
 
-class DigitalVideoDiscTitleComparable
+class DigitalVideoDiscTitleCompare
 		extends DigitalVideoDisc
-		implements java.lang.Comparable<DigitalVideoDiscTitleComparable> {
+		implements java.lang.Comparable<DigitalVideoDiscTitleCompare> {
 
-	public DigitalVideoDiscTitleComparable(DigitalVideoDisc dvd) {
+	public DigitalVideoDiscTitleCompare(DigitalVideoDisc dvd) {
 		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
 	}
 	
 	@Override
-	public int compareTo(DigitalVideoDiscTitleComparable other) {
+	public int compareTo(DigitalVideoDiscTitleCompare other) {
 		return this.getTitle().compareTo(other.getTitle());
 	}
 }
 
 
-class DigitalVideoDiscAttrComparable
+class DigitalVideoDiscAttrCompare
 		extends DigitalVideoDisc
-		implements java.lang.Comparable<DigitalVideoDiscAttrComparable> {
+		implements java.lang.Comparable<DigitalVideoDiscAttrCompare> {
 	
-	public DigitalVideoDiscAttrComparable(DigitalVideoDisc dvd) {
+	public DigitalVideoDiscAttrCompare(DigitalVideoDisc dvd) {
 		super(dvd.getTitle(), dvd.getCategory(), dvd.getDirector(), dvd.getLength(), dvd.getCost(), dvd.getId());
 	}
 	
 	@Override
-	public int compareTo(DigitalVideoDiscAttrComparable other) {
+	public int compareTo(DigitalVideoDiscAttrCompare other) {
 		int titleCompare = this.getTitle().compareTo(other.getTitle());
 		if (titleCompare != 0)
 			return titleCompare;
