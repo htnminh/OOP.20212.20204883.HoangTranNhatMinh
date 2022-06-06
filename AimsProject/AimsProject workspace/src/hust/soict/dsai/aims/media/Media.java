@@ -62,5 +62,12 @@ public abstract class Media {
 		// TODO Auto-generated constructor stub
 	}
 
-		
+	public boolean isMatch(String name) {
+		String words[] = name.split(" ");
+		for (String word: words) {
+			if (title.toLowerCase().contains(word.toLowerCase()))
+				return true;
+		}
+		return false;
+	}
 }

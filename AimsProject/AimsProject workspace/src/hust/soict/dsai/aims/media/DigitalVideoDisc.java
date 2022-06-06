@@ -106,13 +106,5 @@ public class DigitalVideoDisc extends Media {
 		dvd2.setCost(cost1);
 	}
 	
-	public boolean isMatch(String name) {
-		String words[] = name.split(" ");
-		for (String word: words) {
-			if (title.toLowerCase().contains(word.toLowerCase()))
-				return true;
-		}
-		return false;
-	}
 	
 }
