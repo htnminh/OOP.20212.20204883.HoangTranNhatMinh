@@ -9,15 +9,15 @@ public class CartTest {
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc(
 				"The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-		cart.addDigitalVideoDisc(dvd1);
+		cart.addMedia(dvd1);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc(
 				"Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-		cart.addDigitalVideoDisc(dvd2);
+		cart.addMedia(dvd2);
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc(
 							"Aladin", "Animation", 18.99f);
-		cart.addDigitalVideoDisc(dvd3);
+		cart.addMedia(dvd3);
 
 		cart.print();
 		cart.sortByCostDescTitleAndPrint();
@@ -28,17 +28,17 @@ public class CartTest {
 		
 		DigitalVideoDisc dvd4 = new DigitalVideoDisc(
 				"Star Zars", "Test Fiction", "Test Lucas", 15, 69f);
-		cart.addDigitalVideoDisc(dvd4);
+		cart.addMedia(dvd4);
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc(
 				"Star Wars", "Test Fiction", "Test Lucas", 15, 69f);
-		cart.addDigitalVideoDisc(dvd5);
+		cart.addMedia(dvd5);
 		DigitalVideoDisc dvd6 = new DigitalVideoDisc(
 				"Star Wars", "Test Fiction", "Test Lucas", 42, 69f);
-		cart.addDigitalVideoDisc(dvd6);
+		cart.addMedia(dvd6);
 		
 		cart.print();
 		
-		cart.addDigitalVideoDisc(dvd1);
+		cart.addMedia(dvd1);
 		cart.search(1);
 		
 		System.out.println();
@@ -48,8 +48,8 @@ public class CartTest {
 		System.out.println();
 		cart.search("star is an astronomical object");
 		
-		cart.removeDigitalVideoDisc(dvd4);
-		cart.addDigitalVideoDisc(dvd4);
+		cart.removeMedia(dvd4);
+		cart.addMedia(dvd4);
 		
 		cart.sortByCostDescTitleAndPrint();
 		
