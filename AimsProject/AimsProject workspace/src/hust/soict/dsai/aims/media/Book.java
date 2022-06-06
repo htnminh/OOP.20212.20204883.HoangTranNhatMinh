@@ -22,6 +22,7 @@ public class Book extends Media {
 		}
 		return -1;
 	}
+	
 	private void addAuthor(String authorName) {
 		if (indexAuthor(authorName) != -1)
 			authors.add(authorName);
