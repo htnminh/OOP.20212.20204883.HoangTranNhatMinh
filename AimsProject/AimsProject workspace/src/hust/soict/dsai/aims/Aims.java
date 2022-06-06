@@ -88,14 +88,14 @@ public class Aims {
 		store.print("");
 		String title = readStringInput("Enter title: ");
 		
-		store.seeDetailsAndAskAddDVD(title, cart);
+		store.seeDetailsAndAskAddMedia(title, cart);
 		storeAction();
 	}
 	
 	public static void storeAdd() {
 		store.print("");
 		String title = readStringInput("Enter title: ");
-		store.addDVDToCart(title, cart);
+		store.addMediaToCart(title, cart);
 		storeAction();
 	}
 	
