@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.media;
 import java.time.LocalDate;
 
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
 	
 	// constructors
 	public DigitalVideoDisc(String title) {
@@ -19,6 +19,11 @@ public class DigitalVideoDisc extends Disc {
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
 		super(title, category, cost, length, director);
+	}
+	
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
 	
 	// toString
