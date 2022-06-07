@@ -12,7 +12,7 @@ public class Book extends Media {
 
 	@Override
 	public String toString() {
-		return String.format("%s. Book - %s - %s - %s - %s: %s $",
+		return String.format("%s. Book - %s - %s: %s $",
 				id, title, category, cost);
 	}
 	

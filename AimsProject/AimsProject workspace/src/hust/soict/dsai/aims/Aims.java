@@ -67,8 +67,8 @@ public class Aims {
 	public static void storeMenu() {
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
-		System.out.println("1. See a DVD’s details");
-		System.out.println("2. Add a DVD to cart");
+		System.out.println("1. See a Media’s details");
+		System.out.println("2. Add a Media to cart");
 		System.out.println("3. See current cart");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
@@ -109,7 +109,7 @@ public class Aims {
 		System.out.println("4. Remove a Media from store");
 		System.out.println("0. Back");
 		
-		int inp = readInputInt(2);
+		int inp = readInputInt(4);
 		
 		if (inp == 0) showAction();
 		if (inp == 1) updateAddBook();
@@ -154,7 +154,7 @@ public class Aims {
 		
 		Book book = new Book(title, category, cost);
 		
-		System.out.print("Number of author(s) (exception not handled): ");
+		System.out.print("Number of author(s) (int) (exception not handled): ");
 		int authorCount = scanner.nextInt();
 		for (int i = 1; i <= authorCount; i++) {
 			book.addAuthor(readInputString("Enter name author #" + i + ": "));
@@ -180,10 +180,11 @@ public class Aims {
 		
 		String trackTitle;
 		int trackLength;
-		System.out.print("Number of track(s) (exception not handled): ");
+		System.out.print("Number of track(s) (int) (exception not handled): ");
 		int trackCount = scanner.nextInt();
 		for (int i = 1; i <= trackCount; i++) {
-			trackTitle = readInputString("Enter title #" + i + ": ");
+			trackTitle = readInputString("Enter track title #" + i + ": ");
+			System.out.print("Enter track length (int) (exception not handled): ");
 			trackLength = scanner.nextInt();
 			cd.addTrack(new Track(trackTitle, trackLength));
 		}
@@ -197,9 +198,9 @@ public class Aims {
 	public static void cartMenu() {
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
-		System.out.println("1. Filter DVDs in cart");
-		System.out.println("2. Sort DVDs in cart");
-		System.out.println("3. Remove DVD from cart");
+		System.out.println("1. Filter Medias in cart");
+		System.out.println("2. Sort Medias in cart");
+		System.out.println("3. Remove Media from cart");
 		System.out.println("4. Place order");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
