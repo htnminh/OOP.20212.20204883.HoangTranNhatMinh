@@ -12,8 +12,11 @@ public class Book extends Media {
 
 	@Override
 	public String toString() {
-		return String.format("%s. Book - %s - %s: %s $",
-				id, title, category, cost);
+		return String.format("%s. Book - %s - %s - %s: %s $",
+				id, title, category, authorsString(), cost);
+	}
+	public String authorsString() {
+		return String.join(", ", authors);
 	}
 	
 	public List<String> getAuthors() {
@@ -30,16 +33,19 @@ public class Book extends Media {
 	}
 	
 	public void addAuthor(String authorName) {
-		if (indexAuthor(authorName) == -1)
+		if (indexAuthor(authorName) == -1) {
 			authors.add(authorName);
-		// else
-			
+			System.out.println("Added the author: " + authorName);
+		} else
+			System.out.println("Cannot add author, author already exists");
 	}
 	public void removeAuthor(String authorName) {
 		int i = indexAuthor(authorName);
-		if (i != -1)
+		if (i != -1) {
 			authors.remove(i);
-		// else
+			System.out.println("Removed the author: " + authorName);
+		} else
+			System.out.print("Cannot remove author, author does not exist");
 	}
 	
 }

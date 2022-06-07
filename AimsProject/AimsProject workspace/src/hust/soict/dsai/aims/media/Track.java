@@ -22,6 +22,6 @@ public class Track implements Playable {
 	}
 	
 	public String toString() {
-		return title;
+		return title + " " + length;
 	}
 }

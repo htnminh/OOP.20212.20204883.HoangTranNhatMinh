@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
@@ -11,6 +12,18 @@ public class CompactDisc extends Disc implements Playable {
 		super(title, category, cost, 0, director);
 		updateLength();
 		this.artist = artist;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s. CD - %s - %s - %s - %s - %s: %s $",
+				id, title, category, director, length, artist, cost);
+	}
+	public String tracksString() {
+		// solution found here:
+		// https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
+		return tracks.stream().map(Object::toString)
+								.collect(Collectors.joining(", "));
 	}
 	
 	public void play() {
@@ -61,9 +74,5 @@ public class CompactDisc extends Disc implements Playable {
 			System.out.print("Cannot remove track, track does not exist");
 	}
 
-	@Override
-	public String toString() {
-		return String.format("%s. CD - %s - %s - %s - %s - %s: %s $",
-				id, title, category, director, length, artist, cost);
-	}
+	
 }
