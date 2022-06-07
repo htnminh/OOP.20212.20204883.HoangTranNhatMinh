@@ -12,3 +12,11 @@ folders (except for answer files) is copied to AimsProject.
 	The method changeTitle() sets the new title for the referenced object. Afterwards, it tries to assign the dvd to a 
 new dvd with the old title, but it does nothing since dvd is just a copy of reference.
 =====================================================
+=====================================================
+Lab05
+- Which classes are aggregates of other classes?
+	So far, we can see that there is no aggregation relation between classes in the project, i.e. if a class
+associates with another class, it cannot exists independently of that class. In the class diagram, those associations
+are denoted by an arrow at one end and and X mark near the other end.
+- Checking all constructors of whole classes if they initialize for their parts?
+	Yes.
