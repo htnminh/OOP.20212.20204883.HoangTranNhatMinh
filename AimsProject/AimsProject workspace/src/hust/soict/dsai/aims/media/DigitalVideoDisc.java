@@ -1,68 +1,27 @@
 package hust.soict.dsai.aims.media;
-import java.time.LocalDate;
 
-
-public class DigitalVideoDisc extends Media {
-	// private static int nbDigitalVideoDiscs = 0;
-	
-	private String director;
-	private int length;
-	private LocalDate dateAdded;
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
-	public LocalDate getDateAdded() {
-		return dateAdded;
-	}
-	public static int getNbDigitalVideoDiscs() {
-		return nbMedia;
-	}
+public class DigitalVideoDisc extends Disc implements Playable {
 	
 	// constructors
 	public DigitalVideoDisc(String title) {
-		super();
-		dateAdded = LocalDate.now();
-		this.title = title;
-		setNewId();
+		super(title, "", 0f, 0, "");
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
-		super();
-		dateAdded = LocalDate.now();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
-		setNewId();
+		super(title, category, cost, 0, "");
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		super();
-		dateAdded = LocalDate.now();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
-		setNewId();
+		super(title, category, cost, 0, director);
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-		dateAdded = LocalDate.now();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
-		setNewId();
+		super(title, category, cost, length, director);
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
-		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
-		this.id = id;
+		super(title, category, cost, length, director);
+	}
+	
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
 	
 	// toString
@@ -70,17 +29,6 @@ public class DigitalVideoDisc extends Media {
 	public String toString() {
 		return String.format("%s. DVD - %s - %s - %s - %s: %s $",
 				id, title, category, director, length, cost);
-	}
-	
-	private void setDirector(String director) {
-		this.director = director;
-	}
-	private void setLength(int length) {
-		this.length = length;
-	}
-	private void setNewId() {
-		nbMedia ++;
-		id = nbMedia;
 	}
 	
 	// swap
@@ -105,14 +53,4 @@ public class DigitalVideoDisc extends Media {
 		dvd1.setCost(dvd2.getCost());
 		dvd2.setCost(cost1);
 	}
-	
-	public boolean isMatch(String name) {
-		String words[] = name.split(" ");
-		for (String word: words) {
-			if (title.toLowerCase().contains(word.toLowerCase()))
-				return true;
-		}
-		return false;
-	}
-	
 }

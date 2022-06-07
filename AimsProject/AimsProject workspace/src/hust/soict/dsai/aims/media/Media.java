@@ -9,6 +9,25 @@ public abstract class Media {
 	protected String category;
 	protected float cost;
 	protected LocalDate dateAdded;
+
+	public Media(String title, String category, float cost) {
+		dateAdded = LocalDate.now();
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+		setNewId();
+	}
+	
+	public boolean isMatch(String name) {
+		String words[] = name.split(" ");
+		for (String word: words) {
+			if (title.toLowerCase().contains(word.toLowerCase()))
+				return true;
+		}
+		return false;
+	}
+
+	abstract public String toString();
 	
 	public static int getNbMedia() {
 		return nbMedia;
@@ -57,10 +76,9 @@ public abstract class Media {
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-
-	public Media() {
-		// TODO Auto-generated constructor stub
+	
+	public void setNewId() {
+		nbMedia ++;
+		id = nbMedia;
 	}
-
-		
 }
