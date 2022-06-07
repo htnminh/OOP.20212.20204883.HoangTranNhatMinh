@@ -20,7 +20,7 @@ public class CartTest {
 		cart.addMedia(dvd3);
 
 		cart.print();
-		cart.sortByCostDescTitleAndPrint();
+		cart.sortByCostDescendingTitleAndPrint();
 		cart.sortByTitleAndPrint();
 		
 		cart.search(2);
@@ -51,7 +51,7 @@ public class CartTest {
 		cart.removeMedia(dvd4);
 		cart.addMedia(dvd4);
 		
-		cart.sortByCostDescTitleAndPrint();
+		cart.sortByCostDescendingTitleAndPrint();
 		
 	}
 

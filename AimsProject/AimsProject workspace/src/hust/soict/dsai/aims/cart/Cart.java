@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
 
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.utils.MediaUtils;
 
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -79,30 +80,14 @@ public class Cart {
 	}
 	*/
 	
-	public void sortByCostDescTitleAndPrint() {
-		System.out.println("This function is temporary disabled");
-		print();
-		/*
-		arrange();
-		DigitalVideoDisc[] subItemsOrdered
-			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
-		subItemsOrdered = DVDUtils.sortByCost(subItemsOrdered);
-		pasteArrayToItemsOrdered(subItemsOrdered);
+	public void sortByCostDescendingTitleAndPrint() {
+		itemsOrdered = MediaUtils.sortByCostDescendingTitle(itemsOrdered);
 		print("(by cost (descending), then title)");
-		*/
 	}
 	
 	public void sortByTitleAndPrint() {
-		System.out.println("This function is temporary disabled");
-		print();
-		/*
-		arrange();
-		DigitalVideoDisc[] subItemsOrdered
-			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
-		subItemsOrdered = DVDUtils.sortByTitle(subItemsOrdered);
-		pasteArrayToItemsOrdered(subItemsOrdered);
+		itemsOrdered = MediaUtils.sortByTitle(itemsOrdered);
 		print("(by title)");
-		*/
 	}
 	
 	public void sortByAttr() {

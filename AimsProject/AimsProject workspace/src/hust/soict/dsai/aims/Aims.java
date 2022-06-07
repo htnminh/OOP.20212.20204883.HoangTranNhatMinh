@@ -236,22 +236,16 @@ public class Aims {
 	}
 	
 	public static void cartSort() {
-		System.out.println("This function is temporary disabled");
-		cartAction();
-		/*
 		Scanner scanner = new Scanner(System.in);
 		System.out.println(
 				"Sort by? 0. Title / 1. Cost (exception not handled)");
 		int inp = readInputInt(1);
 		if (inp == 0) {
-			cart.sortByAttr();
-			cart.print("(sorted by title, cost (descending))");
-			cartAction();
+			cart.sortByTitleAndPrint();
 		} else {
-			cart.sortByCostDescTitleAndPrint();
-			cartAction();
+			cart.sortByCostDescendingTitleAndPrint();
 		}
-		*/
+		cartAction();
 	}
 	
 	public static void cartRemove() {
