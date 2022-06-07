@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import hust.soict.dsai.aims.Aims;
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 public class Store {
@@ -50,7 +49,7 @@ public class Store {
 			System.out.println("Found: " + media.toString());
 			
 			System.out.println("Add media? 0. No / 1. Yes (exception not handled)");
-			int inp = Aims.readIntInput(1);
+			int inp = Aims.readInputInt(1);
 			if (inp == 1)
 				cart.addMedia(media);
 		} else

@@ -1,6 +1,5 @@
 package hust.soict.dsai.aims.media;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +10,12 @@ public class Book extends Media {
 		super(title, category, cost);
 	}
 
+	@Override
+	public String toString() {
+		return String.format("%s. Book - %s - %s - %s - %s: %s $",
+				id, title, category, cost);
+	}
+	
 	public List<String> getAuthors() {
 		return authors;
 	}
@@ -24,13 +29,13 @@ public class Book extends Media {
 		return -1;
 	}
 	
-	private void addAuthor(String authorName) {
-		if (indexAuthor(authorName) != -1)
+	public void addAuthor(String authorName) {
+		if (indexAuthor(authorName) == -1)
 			authors.add(authorName);
 		// else
 			
 	}
-	private void removeAuthor(String authorName) {
+	public void removeAuthor(String authorName) {
 		int i = indexAuthor(authorName);
 		if (i != -1)
 			authors.remove(i);

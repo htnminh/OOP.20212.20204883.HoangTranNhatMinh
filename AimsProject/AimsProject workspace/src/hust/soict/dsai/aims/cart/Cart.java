@@ -1,10 +1,7 @@
 package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.utils.DVDUtils;
 
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -21,14 +18,20 @@ public class Cart {
 		}
 	}
 	
-	public void removeMedia(Media media) {
-		int i = searchExact(media.getTitle());
+	public void removeMedia(String title) {
+		int i = searchExact(title);
 		if (i >= 0) {
-			itemsOrdered.remove(i);
 			System.out.println(
-					"The following media has been removed: " + media.toString());
+					"The following media has been removed: "
+								+ itemsOrdered.get(i).toString());
+			itemsOrdered.remove(i);
 		} else
 			System.out.println("The media is not found");
+	}
+
+		
+	public void removeMedia(Media media) {
+		removeMedia(media.getTitle());
 	}
 	
 	public float totalCost() {
@@ -74,34 +77,45 @@ public class Cart {
 			}
 		}
 	}
-	
+	*/
 	
 	public void sortByCostDescTitleAndPrint() {
+		System.out.println("This function is temporary disabled");
+		print();
+		/*
 		arrange();
 		DigitalVideoDisc[] subItemsOrdered
 			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
 		subItemsOrdered = DVDUtils.sortByCost(subItemsOrdered);
 		pasteArrayToItemsOrdered(subItemsOrdered);
 		print("(by cost (descending), then title)");
+		*/
 	}
 	
 	public void sortByTitleAndPrint() {
+		System.out.println("This function is temporary disabled");
+		print();
+		/*
 		arrange();
 		DigitalVideoDisc[] subItemsOrdered
 			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
 		subItemsOrdered = DVDUtils.sortByTitle(subItemsOrdered);
 		pasteArrayToItemsOrdered(subItemsOrdered);
 		print("(by title)");
+		*/
 	}
 	
 	public void sortByAttr() {
+		System.out.println("This function is temporary disabled");
+		/*
 		arrange();
 		DigitalVideoDisc[] subItemsOrdered
 			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
 		subItemsOrdered = DVDUtils.sortByAttr(subItemsOrdered);
 		pasteArrayToItemsOrdered(subItemsOrdered);
+		*/
 	}
-	*/
+	
 	
 	public void search(int id) {
 		boolean found = false;
@@ -141,5 +155,29 @@ public class Cart {
 	
 	public void empty() {
 		itemsOrdered = new ArrayList<Media>();
+	}
+	
+	public Media getALuckyItem() {
+		if (itemsOrdered.size() >= 5) {
+			//       random        -> [0.0, 1.0)
+			//       random * size -> [0.0, size)
+			// (int) random * size -> [0,   size)
+			int i = (int) Math.random() * itemsOrdered.size();
+			return itemsOrdered.get(i);
+		} else
+			return null;
+	}
+	
+	public void order() {
+		Media luckyItem = getALuckyItem();
+		if (luckyItem == null) {
+			System.out.println("No free item this time.");
+			System.out.println("Total cost: " + totalCost());
+		} else {
+			System.out.println("Your free item: " + luckyItem.toString());
+			System.out.println("Discounted total cost: " + 
+							(totalCost() - luckyItem.getCost()));
+		}
+		empty();
 	}
 }

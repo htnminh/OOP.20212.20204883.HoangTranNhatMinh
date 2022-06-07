@@ -27,6 +27,8 @@ public abstract class Media {
 		return false;
 	}
 
+	abstract public String toString();
+	
 	public static int getNbMedia() {
 		return nbMedia;
 	}

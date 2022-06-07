@@ -28,5 +28,7 @@ public class DiskTest {
 		
 		System.out.println();
 		cart.search("that's aladin and someone else idk");
+		
+		System.out.println((int) 4.99);
 	}
 }
