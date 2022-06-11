@@ -5,7 +5,12 @@ import java.util.ArrayList;
 
 import hust.soict.dsai.aims.Aims;
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Disc;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.Playable;
 
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
@@ -64,6 +69,18 @@ public class Store {
 			System.out.println("Media added to cart");
 		} else
 			System.out.println("The media is not found");
+	}
+	
+	public void playAMedia(String title) {
+		int i = searchExact(title);
+		if (i == -1) 
+			System.out.println("The media is not found");
+		Media media = itemsInStore.get(i);
+		
+		if (media instanceof Playable) 
+			((Playable)media).play();
+		else
+			System.out.println("Not playable");
 	}
 	
 	public void print(String note) {

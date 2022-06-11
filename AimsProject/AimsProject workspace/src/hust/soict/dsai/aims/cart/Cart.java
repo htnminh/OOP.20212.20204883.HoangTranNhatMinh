@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
 
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.Playable;
 import hust.soict.dsai.aims.utils.MediaUtils;
 
 public class Cart {
@@ -164,5 +165,17 @@ public class Cart {
 							(totalCost() - luckyItem.getCost()));
 		}
 		empty();
+	}
+	
+	public void playAMedia(String title) {
+		int i = searchExact(title);
+		if (i == -1) 
+			System.out.println("The media is not found");
+		Media media = itemsOrdered.get(i);
+		
+		if (media instanceof Playable)
+			((Playable)media).play();
+		else
+			System.out.println("Not playable");
 	}
 }

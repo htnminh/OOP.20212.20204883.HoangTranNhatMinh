@@ -70,6 +70,7 @@ public class Aims {
 		System.out.println("1. See a Media’s details");
 		System.out.println("2. Add a Media to cart");
 		System.out.println("3. See current cart");
+		System.out.println("4. Play a Media in store");  // TODO
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3");
@@ -77,11 +78,12 @@ public class Aims {
 	
 	public static void storeAction() {
 		storeMenu();
-		int inp = readInputInt(3);
+		int inp = readInputInt(4);
 		if (inp == 0) showAction();
 		if (inp == 1) storeDetails();
 		if (inp == 2) storeAdd();
 		if (inp == 3) cartAction();
+		if (inp == 4) storePlay();
 	}
 	
 	public static void storeDetails() {
@@ -96,6 +98,13 @@ public class Aims {
 		store.print("");
 		String title = readInputString("Enter title: ");
 		store.addMediaToCart(title, cart);
+		storeAction();
+	}
+	
+	public static void storePlay() {
+		store.print("");
+		String title = readInputString("Enter title: ");
+		store.playAMedia(title);
 		storeAction();
 	}
 	
@@ -202,6 +211,7 @@ public class Aims {
 		System.out.println("2. Sort Medias in cart");
 		System.out.println("3. Remove Media from cart");
 		System.out.println("4. Place order");
+		System.out.println("5. Play a Media in cart");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3-4");
@@ -210,13 +220,14 @@ public class Aims {
 	public static void cartAction() {
 		cart.print();
 		cartMenu();
-		int inp = readInputInt(4);
+		int inp = readInputInt(5);
 		
 		if (inp == 0) showAction();
 		if (inp == 1) cartFilter();
 		if (inp == 2) cartSort();
 		if (inp == 3) cartRemove();
 		if (inp == 4) cartOrder();
+		if (inp == 5) cartPlay();
 	}
 	
 	public static void cartFilter() {
@@ -259,6 +270,13 @@ public class Aims {
 	public static void cartOrder() {
 		System.out.println("An order is created");
 		cart.order();
+		cartAction();
+	}
+	
+	public static void cartPlay() {
+		store.print("");
+		String title = readInputString("Enter title: ");
+		store.playAMedia(title);
 		cartAction();
 	}
 	
