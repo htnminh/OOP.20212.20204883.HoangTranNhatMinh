@@ -24,4 +24,11 @@ public class Track implements Playable {
 	public String toString() {
 		return title + " " + length;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Track that = (Track)o;
+		return this.title.equals(that.getTitle())
+				&& (this.length == that.getLength());
+	}
 }

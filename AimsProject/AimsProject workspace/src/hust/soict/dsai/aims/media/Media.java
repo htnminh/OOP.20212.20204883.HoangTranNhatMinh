@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.media;
 
 import java.time.LocalDate;
 
+import javax.naming.OperationNotSupportedException;
+
 public abstract class Media {
 	protected static int nbMedia = 0;
 	protected int id;
@@ -80,5 +82,10 @@ public abstract class Media {
 	public void setNewId() {
 		nbMedia ++;
 		id = nbMedia;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return this.id == ((Media)o).id;
 	}
 }

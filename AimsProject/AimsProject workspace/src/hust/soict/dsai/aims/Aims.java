@@ -28,7 +28,6 @@ public class Aims {
 			inp = scanner.nextInt();
 		} while (!((0 <= inp && inp <= max)));
 		
-		// scanner.close();
 		return inp;
 	}
 	
@@ -38,7 +37,6 @@ public class Aims {
 		System.out.print(message);
 		String inp = scanner.nextLine();
 		
-		// scanner.close();	
 		return inp;
 	}
 	
