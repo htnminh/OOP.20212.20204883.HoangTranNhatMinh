@@ -9,7 +9,7 @@ public class BookTest {
 		book.setContent("This, is, a sentence! Also this. And this.");
 		for (String word: book.getContentTokens())
 			System.out.println("\"" + word + "\"");
-		System.out.println(book.getWordFrequency().toString());
+		System.out.println(book.getWordFrequency());
 		System.out.println(book);
 	}
 

@@ -20,3 +20,12 @@ associates with another class, it cannot exists independently of that class. In 
 are denoted by an arrow at one end and and X mark near the other end.
 - Checking all constructors of whole classes if they initialize for their parts?
 	Yes.
+=====================================================
+=====================================================
+Lab06
+- Create an ArrayList of Media, then add some media (CD, DVD, or Book) to the list. Iterate through the list and print out
+the information of the media by using the toString() method. Observe what happens and explain it in detail.
+	Code illustrated in hust.soict.dsai.test.media TestMediaCompareTo. Each media's toString() method is called. For
+each object, since which method to call is decided by JVM using a mechanism named late binding, the toString() method of 
+child class is called (e.g. Book's toString() is called instead of Media's toString()).
+Reference: http://orion.towson.edu/~izimand/237/LectureNotes/3-Lecture-Polymorphism-1.htm

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Book extends Media {
 	private List<String> authors = new ArrayList<String>();
-	private String content;
+	private String content = "";
 	private List<String> contentTokens = new ArrayList<String>();
 	private Map<String,Integer> wordFrequency = new TreeMap<String, Integer>();
 	
