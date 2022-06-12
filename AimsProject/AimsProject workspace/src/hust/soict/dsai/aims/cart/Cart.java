@@ -9,9 +9,12 @@ public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
 	public void addMedia(Media media) {
-		itemsOrdered.add(media);
-		System.out.println(
-				"The following media has been added: " + media.toString());
+		if (itemsOrdered.indexOf(media) == -1) {
+			itemsOrdered.add(media);
+			System.out.println(
+					"The following media has been added: " + media.toString());
+		} else 
+			System.out.println("Media already exist, cannot add.");
 	}
 	
 	public void addMedia(Media... mediaList) {
