@@ -84,27 +84,15 @@ public class Cart {
 	}
 	*/
 	
-	public void sortByCostDescendingTitleAndPrint() {
-		itemsOrdered = MediaUtils.sortByCostDescendingTitle(itemsOrdered);
-		print("(by cost (descending), then title)");
+	public void sortByCostTitleAndPrint() {
+		MediaUtils.sortByCostTitle(itemsOrdered);
+		print("(sorted by cost)");
 	}
 	
-	public void sortByTitleAndPrint() {
-		itemsOrdered = MediaUtils.sortByTitle(itemsOrdered);
-		print("(by title)");
+	public void sortByTitleCostAndPrint() {
+		MediaUtils.sortByTitleCost(itemsOrdered);
+		print("(sorted by title)");
 	}
-	
-	public void sortByAttr() {
-		System.out.println("This function is temporary disabled");
-		/*
-		arrange();
-		DigitalVideoDisc[] subItemsOrdered
-			= Arrays.copyOfRange(itemsOrdered, 0, qtyOrdered);
-		subItemsOrdered = DVDUtils.sortByAttr(subItemsOrdered);
-		pasteArrayToItemsOrdered(subItemsOrdered);
-		*/
-	}
-	
 	
 	public void search(int id) {
 		boolean found = false;

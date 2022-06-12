@@ -1,11 +1,20 @@
 package hust.soict.dsai.aims.media;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 import javax.naming.OperationNotSupportedException;
 
+import hust.soict.dsai.aims.utils.MediaComparatorByCostTitle;
+import hust.soict.dsai.aims.utils.MediaComparatorByTitleCost;
+
 public abstract class Media implements Comparable<Media> {
 	protected static int nbMedia = 0;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = 
+			new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE =
+			new MediaComparatorByCostTitle();
+	
 	protected int id;
 	protected String title;
 	protected String category;
@@ -22,11 +31,9 @@ public abstract class Media implements Comparable<Media> {
 	
 	@Override
 	public int compareTo(Media that) {
-		int titleCompare = this.title.compareTo(that.getTitle());
-		if (titleCompare != 0)
-			return titleCompare;
-		else 
-			return this.category.compareTo(that.getCategory());
+		return Comparator.comparing(Media::getTitle)
+						 .thenComparing(Media::getCategory)
+						 .compare(this, that);
 	}
 	
 	public boolean isMatch(String name) {
