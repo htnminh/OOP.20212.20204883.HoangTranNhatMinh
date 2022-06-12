@@ -17,8 +17,6 @@ public class DVDTest {
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc(
 				"EEEE", "eeee", "eeee", 5, 3.3f);
 		
-		System.out.println(MediaUtils.compareByCost(dvd1, dvd2));
-		System.out.println(MediaUtils.compareByTitle(dvd5, dvd3));
 		
 		DigitalVideoDisc dvdArray[] =
 				new DigitalVideoDisc[] {dvd1, dvd2, dvd3, dvd4, dvd5};

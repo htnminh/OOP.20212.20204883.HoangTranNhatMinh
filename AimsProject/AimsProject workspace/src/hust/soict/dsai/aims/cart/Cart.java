@@ -84,13 +84,13 @@ public class Cart {
 	}
 	*/
 	
-	public void sortByCostDescendingTitleAndPrint() {
-		itemsOrdered = MediaUtils.sortByCostDescendingTitle(itemsOrdered);
-		print("(by cost (descending), then title)");
+	public void sortByCostTitleAndPrint() {
+		MediaUtils.sortByCostTitle(itemsOrdered);
+		print("(by cost)");
 	}
 	
-	public void sortByTitleAndPrint() {
-		itemsOrdered = MediaUtils.sortByTitle(itemsOrdered);
+	public void sortByTitleCostAndPrint() {
+		MediaUtils.sortByTitleCost(itemsOrdered);
 		print("(by title)");
 	}
 	
