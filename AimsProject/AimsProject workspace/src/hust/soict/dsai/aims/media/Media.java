@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import javax.naming.OperationNotSupportedException;
 
-public abstract class Media {
+public abstract class Media implements Comparable<Media> {
 	protected static int nbMedia = 0;
 	protected int id;
 	protected String title;
@@ -18,6 +18,15 @@ public abstract class Media {
 		this.category = category;
 		this.cost = cost;
 		setNewId();
+	}
+	
+	@Override
+	public int compareTo(Media that) {
+		int titleCompare = this.title.compareTo(that.getTitle());
+		if (titleCompare != 0)
+			return titleCompare;
+		else 
+			return this.category.compareTo(that.getCategory());
 	}
 	
 	public boolean isMatch(String name) {
