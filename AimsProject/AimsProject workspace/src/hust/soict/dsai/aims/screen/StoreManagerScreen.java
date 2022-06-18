@@ -7,6 +7,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -24,6 +27,7 @@ import hust.soict.dsai.aims.store.Store;
 @SuppressWarnings("serial")
 public class StoreManagerScreen extends JFrame {
 	private Store store;
+	StoreManagerScreen thisFrame = this;
 	
 	public static void main(String[] args) {
 		new StoreManagerScreen(new Store());
@@ -42,7 +46,8 @@ public class StoreManagerScreen extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// TODO
+		// setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	
@@ -57,12 +62,23 @@ public class StoreManagerScreen extends JFrame {
 	JMenuBar createMenuBar() {
 		JMenu menu = new JMenu("Options");
 		
-		menu.add(new JMenuItem("View store"));
+		JMenuItem viewStoreItem = new JMenuItem("View store");
+		// TODO
+		viewStoreItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				refresh();
+			}
+		});
+		menu.add(viewStoreItem);
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
+		// TODO
 		smUpdateStore.add(new JMenuItem("Add Book"));
 		smUpdateStore.add(new JMenuItem("Add CD"));
-		smUpdateStore.add(new JMenuItem("Add DVD"));
+		JMenuItem addDVDItem = new JMenuItem("Add DVD");
+		addDVDItem.addActionListener(new addMediaListener());
+		smUpdateStore.add(addDVDItem);
 		menu.add(smUpdateStore);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -101,5 +117,21 @@ public class StoreManagerScreen extends JFrame {
 		return center;
 	}
 	
-	
+	private void close() {
+		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	}
+	public void refresh() {
+		close();
+		new StoreManagerScreen(store);
+	}
+
+	public Store getStore() {
+		return store;
+	}
+	private class addMediaListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new AddDigitalVideoDiscToStoreScreen(thisFrame);
+		}
+	}
 }
