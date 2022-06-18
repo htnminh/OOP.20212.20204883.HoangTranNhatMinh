@@ -1,8 +1,10 @@
 package hust.soict.dsai.aims.screen;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -41,8 +43,7 @@ public class MediaStore extends JPanel {
 		this.add(Box.createVerticalGlue());
 		this.add(container);
 		
-		//this.setBorder(BorderFactory.createLineBorder(int));
-		// TODO
+		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
 }
