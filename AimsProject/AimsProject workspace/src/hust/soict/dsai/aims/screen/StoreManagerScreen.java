@@ -1,6 +1,8 @@
 package hust.soict.dsai.aims.screen;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,11 +21,26 @@ import javax.swing.JPanel;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
-public class StoreManagerScreen {
+public class StoreManagerScreen extends JFrame {
 	private Store store;
 	
 	public static void main(String[] args) {
-		new StoreManagerScreen();
+		new StoreManagerScreen(new Store());
+	}
+	
+	public StoreManagerScreen(Store store) {
+		this.store = store;
+		
+		Container cp = getContentPane();
+		cp.setLayout(new BorderLayout());
+		cp.add(createNorth(), BorderLayout.NORTH);
+		cp.add(createCenter(), BorderLayout.CENTER);
+		
+		setTitle("Store");
+		setSize(1024, 768);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
 	}
 	
 	JPanel createNorth() {
