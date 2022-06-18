@@ -68,7 +68,7 @@ public class Aims {
 		System.out.println("1. See a Media’s details");
 		System.out.println("2. Add a Media to cart");
 		System.out.println("3. See current cart");
-		System.out.println("4. Play a Media in store");  // TODO
+		System.out.println("4. Play a Media in store");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3");
