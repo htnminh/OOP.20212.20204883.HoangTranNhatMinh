@@ -41,6 +41,8 @@ public class StoreManagerScreen extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 	}
 	
 	JPanel createNorth() {
