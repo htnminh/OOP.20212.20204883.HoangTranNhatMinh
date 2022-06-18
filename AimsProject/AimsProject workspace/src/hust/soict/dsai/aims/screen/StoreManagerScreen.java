@@ -29,8 +29,7 @@ public class StoreManagerScreen {
 		JPanel north = new JPanel();
 		north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
 		north.add(createMenuBar());
-		// TODO
-		
+		north.add(createHeader());
 		return north;
 	}
 	
@@ -74,7 +73,8 @@ public class StoreManagerScreen {
 		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
 		for (int i = 0; i < Math.min(9, mediaInStore.size()); i++) {
-			// TODO 
+			MediaStore cell = new MediaStore(mediaInStore.get(i));
+			center.add(cell);
 		}
 		
 		return center;
