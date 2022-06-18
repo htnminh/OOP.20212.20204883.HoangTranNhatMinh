@@ -4,6 +4,7 @@ Name: Hoàng Trần Nhật Minh \
 Student ID: 20204883
 
 ## Notes
+https://www.dropbox.com/sh/4u3ju6kxlhidl09/AAD7z2pyPb7Pi9fPq2dry7L7a?dl=0&fbclid=IwAR3EV7mlm-3G1mAavemi1FcQDdcPR7o2FVJZ_UfCpJgCZ3Yfdq3G-yNKtOg
 - Lab01: Done
 - Lab02: Done
 - Lab03: Done
