@@ -23,14 +23,14 @@ public abstract class AddMediaToStoreScreen extends JFrame {
 	protected JPanel panel;
 	
 	public AddMediaToStoreScreen(String title, String... fieldNames) {
-		getRootPane().setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.WHITE));
+		getRootPane().setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.WHITE));
 		
 		cp = getContentPane();
 		cp.setLayout(new GridLayout(fieldNames.length + 1, 2, 2, 2));
 		
 		for (String fieldName: fieldNames) {
 			cp.add(new JLabel(fieldName));
-			cp.add(new JTextField(10));
+			cp.add(new JTextField());
 		}
 		JButton addBtn = new JButton("Add");
 		cp.add(addBtn);
@@ -38,11 +38,13 @@ public abstract class AddMediaToStoreScreen extends JFrame {
 		cp.add(cancelBtn);
 		
 		setTitle(title);
-		setSize(500, 45 * fieldNames.length);
+		setSize(550, 45 * fieldNames.length + 50);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+	
+	
 
 }
