@@ -63,7 +63,6 @@ public class StoreManagerScreen extends JFrame {
 		JMenu menu = new JMenu("Options");
 		
 		JMenuItem viewStoreItem = new JMenuItem("View store");
-		// TODO
 		viewStoreItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -73,12 +72,20 @@ public class StoreManagerScreen extends JFrame {
 		menu.add(viewStoreItem);
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
-		// TODO
-		smUpdateStore.add(new JMenuItem("Add Book"));
-		smUpdateStore.add(new JMenuItem("Add CD"));
+		AddMediaActionListener addMediaActionListener = new AddMediaActionListener();
+		
+		JMenuItem addBookItem = new JMenuItem("Add Book");
+		addBookItem.addActionListener(addMediaActionListener);
+		smUpdateStore.add(addBookItem);
+		
+		JMenuItem addCDItem = new JMenuItem("Add CD");
+		addCDItem.addActionListener(addMediaActionListener);
+		smUpdateStore.add(addCDItem);
+		
 		JMenuItem addDVDItem = new JMenuItem("Add DVD");
-		addDVDItem.addActionListener(new addMediaListener());
+		addDVDItem.addActionListener(addMediaActionListener);
 		smUpdateStore.add(addDVDItem);
+		
 		menu.add(smUpdateStore);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -128,10 +135,16 @@ public class StoreManagerScreen extends JFrame {
 	public Store getStore() {
 		return store;
 	}
-	private class addMediaListener implements ActionListener {
+	private class AddMediaActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			new AddDigitalVideoDiscToStoreScreen(thisFrame);
+			String button = e.getActionCommand();
+			if (button.equals("Add Book"))
+				new AddBookToStoreScreen(thisFrame);
+			else if (button.equals("Add DVD"))
+				new AddDigitalVideoDiscToStoreScreen(thisFrame);
+			else if (button.equals("Add CD"))
+				new AddCompactDiscToStoreScreen(thisFrame);
 		}
 	}
 }
