@@ -21,6 +21,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
@@ -86,6 +89,10 @@ public class StoreManagerScreen extends JFrame {
 		addDVDItem.addActionListener(addMediaActionListener);
 		smUpdateStore.add(addDVDItem);
 		
+		JMenuItem addSampleMediaeItem = new JMenuItem("Add sample Mediae");
+		addSampleMediaeItem.addActionListener(addMediaActionListener);
+		smUpdateStore.add(addSampleMediaeItem);
+		
 		menu.add(smUpdateStore);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -135,6 +142,26 @@ public class StoreManagerScreen extends JFrame {
 	public Store getStore() {
 		return store;
 	}
+	
+	private void addSampleMediae() {
+		store.addMedia(new Book("The Book A", "The Category BookA", 3.2f));
+		store.addMedia(new Book("The Book B", "The Category BookB", 1.4f));
+		store.addMedia(new Book("The Book C", "The Category BookC", 1.2f));
+		store.addMedia(new DigitalVideoDisc(
+				"The DVD A", "The Category DVDA", "The Director DVDA", 6, 15f));
+		store.addMedia(new DigitalVideoDisc(
+				"The DVD B", "The Category DVDB", "The Director DVDB", 9, 12.8f));
+		store.addMedia(new DigitalVideoDisc(
+				"The DVD C", "The Category DVDC", "The Director DVDC", 14, 2.1f));
+		store.addMedia(new CompactDisc(
+				"The CD A", "The Category CDA", 2.3f, "The Director CDA", "The Artist CDA"));
+		store.addMedia(new CompactDisc(
+				"The CD B", "The Category CDB", 6.9f, "The Director CDB", "The Artist CDB"));
+		store.addMedia(new CompactDisc(
+				"The CD C", "The Category CDC", 5.5f, "The Director CDC", "The Artist CDC"));
+		refresh();
+	}
+	
 	private class AddMediaActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -145,6 +172,8 @@ public class StoreManagerScreen extends JFrame {
 				new AddDigitalVideoDiscToStoreScreen(thisFrame);
 			else if (button.equals("Add CD"))
 				new AddCompactDiscToStoreScreen(thisFrame);
+			else 
+				addSampleMediae();
 		}
 	}
 }

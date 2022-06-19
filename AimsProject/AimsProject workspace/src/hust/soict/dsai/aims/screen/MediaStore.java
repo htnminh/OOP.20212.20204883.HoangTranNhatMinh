@@ -25,6 +25,7 @@ public class MediaStore extends JPanel {
 	private Media media;
 	
 	public MediaStore(Media media) {
+		
 		this.media = media;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -60,9 +61,10 @@ public class MediaStore extends JPanel {
 			this.media = media;
 		}
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {			
 			JDialog dialog = new JDialog();
 			dialog.setTitle("Play " + media.getTitle());
+			dialog.getRootPane().setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.WHITE));
 			
 			JTextArea textArea = new JTextArea(((Playable)media).getPlayString());
 			textArea.setEditable(false);
