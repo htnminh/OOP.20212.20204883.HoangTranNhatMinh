@@ -251,9 +251,9 @@ public class Aims {
 				"Sort by? 0. Title / 1. Cost (exception not handled)");
 		int inp = readInputInt(1);
 		if (inp == 0) {
-			cart.sortByTitleAndPrint();
+			cart.sortByTitleCostAndPrint();
 		} else {
-			cart.sortByCostDescendingTitleAndPrint();
+			cart.sortByCostTitleAndPrint();
 		}
 		cartAction();
 	}
