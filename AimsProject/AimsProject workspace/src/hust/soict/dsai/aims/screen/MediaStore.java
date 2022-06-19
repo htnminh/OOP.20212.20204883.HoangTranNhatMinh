@@ -3,18 +3,23 @@ package hust.soict.dsai.aims.screen;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 
+@SuppressWarnings("serial")
 public class MediaStore extends JPanel {
 	private Media media;
 	
@@ -34,6 +39,7 @@ public class MediaStore extends JPanel {
 		
 		if (media instanceof Playable) {
 			JButton playButton = new JButton("Play");
+			playButton.addActionListener(new PlayActionListener(media));
 			container.add(playButton);
 		}
 		
@@ -44,6 +50,26 @@ public class MediaStore extends JPanel {
 		this.add(container);
 		
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+	}
+	
+	private class PlayActionListener implements ActionListener {
+		// TODO
+		Media media;
+		public PlayActionListener(Media media) {
+			this.media = media;
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JDialog dialog = new JDialog();
+			dialog.setTitle("Play " + media.getTitle());
+			
+			JTextField textField = new JTextField(((Playable)media).getPlayString());
+			textField.setEditable(false);
+			dialog.add(textField);
+			
+			dialog.setVisible(true);
+			dialog.setSize(300, 200);
+		}
 	}
 	
 }

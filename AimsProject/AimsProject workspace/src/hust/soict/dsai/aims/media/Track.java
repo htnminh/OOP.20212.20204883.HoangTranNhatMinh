@@ -17,8 +17,13 @@ public class Track implements Playable {
 	}
 	
 	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+		System.out.println(getPlayString());
+	}
+	@Override
+	public String getPlayString() {
+		String res = "Playing DVD: " + this.getTitle() + "\n";
+		res += "DVD length: " + this.getLength() + "\n";
+		return res;
 	}
 	
 	public String toString() {
