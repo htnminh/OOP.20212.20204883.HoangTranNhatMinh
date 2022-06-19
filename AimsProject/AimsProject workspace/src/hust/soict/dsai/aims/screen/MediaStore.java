@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -63,9 +64,9 @@ public class MediaStore extends JPanel {
 			JDialog dialog = new JDialog();
 			dialog.setTitle("Play " + media.getTitle());
 			
-			JTextField textField = new JTextField(((Playable)media).getPlayString());
-			textField.setEditable(false);
-			dialog.add(textField);
+			JTextArea textArea = new JTextArea(((Playable)media).getPlayString());
+			textArea.setEditable(false);
+			dialog.add(textArea);
 			
 			dialog.setVisible(true);
 			dialog.setSize(300, 200);

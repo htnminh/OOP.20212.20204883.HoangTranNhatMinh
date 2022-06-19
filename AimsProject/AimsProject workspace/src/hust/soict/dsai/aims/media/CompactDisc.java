@@ -32,7 +32,7 @@ public class CompactDisc extends Disc implements Playable {
 	}
 	@Override
 	public String getPlayString() {
-		String res = "Playing: CD " + title + " of " + artist + "\n";
+		String res = "Playing CD: " + title + " of " + artist + "\n";
 		for (Track track: tracks) {
 			res += track.getPlayString();
 		}
