@@ -13,6 +13,7 @@ https://www.dropbox.com/sh/4u3ju6kxlhidl09/AAD7z2pyPb7Pi9fPq2dry7L7a?dl=0&fbclid
   - For backward compatibility, the Lab01, Lab02 and Lab03 folders will not be removed. However, everything in those folders (except for answer files) is copied to AimsProject.
 - Lab05: Done
 - Lab06: Done
+- Lab07: Done
 
 # Docs
 - [LICENSE](https://github.com/htnminh/OOP.20212.20204883.HoangTranNhatMinh/blob/e28d30c74dcecc91b12979f0d0f9e7d4c4b4fff8/LICENSE)
