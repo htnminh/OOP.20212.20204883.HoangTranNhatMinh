@@ -68,7 +68,7 @@ public class Aims {
 		System.out.println("1. See a Media’s details");
 		System.out.println("2. Add a Media to cart");
 		System.out.println("3. See current cart");
-		System.out.println("4. Play a Media in store");  // TODO
+		System.out.println("4. Play a Media in store");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3");
@@ -205,8 +205,8 @@ public class Aims {
 	public static void cartMenu() {
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
-		System.out.println("1. Filter Medias in cart");
-		System.out.println("2. Sort Medias in cart");
+		System.out.println("1. Filter Mediae in cart");
+		System.out.println("2. Sort Mediae in cart");
 		System.out.println("3. Remove Media from cart");
 		System.out.println("4. Place order");
 		System.out.println("5. Play a Media in cart");
