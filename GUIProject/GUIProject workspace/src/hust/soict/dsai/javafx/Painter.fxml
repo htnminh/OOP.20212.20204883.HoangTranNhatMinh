@@ -20,12 +20,12 @@
               <content>
                 <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="66.0" prefWidth="46.0">
                      <children>
-                        <RadioButton layoutX="10.0" layoutY="6.0" mnemonicParsing="false" selected="true" text="Pen">
+                        <RadioButton fx:id="penRadioButton" layoutX="10.0" layoutY="6.0" mnemonicParsing="false" selected="true" text="Pen">
                            <toggleGroup>
-                              <ToggleGroup fx:id="PenEraser" />
+                              <ToggleGroup fx:id="penEraserGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Eraser" toggleGroup="$PenEraser" />
+                        <RadioButton fx:id="eraserRadioButton" layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Eraser" toggleGroup="$penEraserGroup" />
                      </children>
                   </AnchorPane>
               </content>
