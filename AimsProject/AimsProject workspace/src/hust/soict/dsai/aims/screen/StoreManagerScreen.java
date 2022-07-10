@@ -144,21 +144,7 @@ public class StoreManagerScreen extends JFrame {
 	}
 	
 	private void addSampleMediae() {
-		store.addMedia(new Book("The Book A", "The Category BookA", 3.2f));
-		store.addMedia(new Book("The Book B", "The Category BookB", 1.4f));
-		store.addMedia(new Book("The Book C", "The Category BookC", 1.2f));
-		store.addMedia(new DigitalVideoDisc(
-				"The DVD A", "The Category DVDA", "The Director DVDA", 6, 15f));
-		store.addMedia(new DigitalVideoDisc(
-				"The DVD B", "The Category DVDB", "The Director DVDB", 9, 12.8f));
-		store.addMedia(new DigitalVideoDisc(
-				"The DVD C", "The Category DVDC", "The Director DVDC", 14, 2.1f));
-		store.addMedia(new CompactDisc(
-				"The CD A", "The Category CDA", 2.3f, "The Director CDA", "The Artist CDA"));
-		store.addMedia(new CompactDisc(
-				"The CD B", "The Category CDB", 6.9f, "The Director CDB", "The Artist CDB"));
-		store.addMedia(new CompactDisc(
-				"The CD C", "The Category CDC", 5.5f, "The Director CDC", "The Artist CDC"));
+		store.addSampleMediae();
 		refresh();
 	}
 	
